@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>StatTrak™ of penalties in CS2 - The Form (beta)</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        max-width: 800px;
+        margin: 20px auto;
+        padding: 20px;
+        border: 1px solid #ccc;
+        border-radius: 10px;
+        background-color: #f9f9f9;
+      }
+      h1, h2 {
+        text-align: center;
+        color: #333;
+      }
+      label {
+        font-weight: bold;
+        display: block;
+        margin-top: 15px;
+      }
+      input, select, textarea, button {
+        width: 100%;
+        margin: 5px 0 15px 0;
+        padding: 10px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        box-sizing: border-box;
+      }
+      button {
+        background-color: #4CAF50;
+        color: white;
+        cursor: pointer;
+        font-size: 16px;
+      }
+      button:hover {
+        background-color: #45a049;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>StatTrak™ of penalties in CS2 - The Form (beta)</h1>
+    <p1>This site is under development - last update: 26.11.2024 11:30</p1>
+    <form id="dataForm">
+      <!-- Sekcja 1: Match Data -->
+      <h2>Match Data</h2>
+      <label for="MAP">Map:</label>
+      <select id="MAP" name="MAP" required>
+        <option value="">-- Select a Map --</option>
+        <option value="ancient">Ancient</option>
+        <option value="anubis">Anubis</option>
+        <option value="basalt">Basalt</option>
+        <option value="dust">Dust II</option>
+        <option value="edin">Edin</option>
+        <option value="inferno">Inferno</option>
+        <option value="italy">Italy</option>
+        <option value="mirage">Mirage</option>
+        <option value="nuke">Nuke</option>
+        <option value="office">Office</option>
+        <option value="overpass">Overpass</option>
+        <option value="vertigo">Vertigo</option>
+      </select>
+
+      <label for="DATE">Date:</label>
+      <input type="text" id="DATE" name="DATE" required>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function() {
+    const today = new Date();
+    const formattedDate = 
+      String(today.getDate()).padStart(2, '0') + '.' + 
+      String(today.getMonth() + 1).padStart(2, '0') + '.' + 
+      today.getFullYear();
+    document.getElementById('DATE').value = formattedDate;
+  });
+    document.addEventListener("DOMContentLoaded", function () {
+    const successRateField = document.getElementById("S. RATE");
+    const relatedFields = [
+      document.getElementById("BAN_TYPE"),
+      document.getElementById("DURATION"),
+      document.getElementById("BAN_METHOD")
+    ];
+
+    successRateField.addEventListener("input", function () {
+      if (successRateField.value.trim().toLowerCase() === "kicked") {
+        relatedFields.forEach(field => {
+          const kickedOption = Array.from(field.options).find(option => option.value === "kicked");
+          if (kickedOption) {
+            field.value = "kicked";
+          }
+        });
+      }
+    });
+  });
+</script>
+
+      <label for="S_RATE">Success Rate:</label>
+      <textarea id="S_RATE" name="S_RATE" rows="5" placeholder="Enter succes rate here..."></textarea>
+
+      <label for="TROLL">Troll:</label>
+      <select id="TROLL" name="TROLL" required>
+        <option value="">-- Select Troll Status --</option>
+        <option value="1" selected>True</option>
+        <option value="0">False</option>
+      </select>
+
+      <label for="VPN">VPN:</label>
+      <select id="VPN" name="VPN" required>
+        <option value="">-- Select VPN Status --</option>
+        <option value="1">True</option>
+        <option value="0" selected>False</option>
+      </select>
+
+      <!-- Sekcja 2: Additional Info -->
+      <h2>Additional Info</h2>
+      <label for="NOTE">Note (optional):</label>
+      <textarea id="NOTE" name="NOTE" rows="5" placeholder="Enter your note here..."></textarea>
+
+      <!-- Sekcja 3: Ban Data -->
+      <h2>Ban Data</h2>
+      <label for="BAN_TYPE">Ban Type:</label>
+      <select id="BAN_TYPE" name="BAN_TYPE" required>
+        <option value="">-- Select Ban Type --</option>
+        <option value="kicked">Kicked</option>
+        <option value="ragequit">Ragequit</option>
+        <option value="teamdamage">Teamdamage</option>
+        <option value="teamkill">Teamkill</option>
+        <option value="spawnkill">Spawnkill</option>
+        <option value="VAC">VAC</option>
+        <option value="n/a">Unknown (n/a)</option>
+      </select>
+
+      <label for="DURATION">Ban Duration:</label>
+      <select id="DURATION" name="DURATION" required>
+        <option value="">-- Select Ban Duration --</option>
+        <option value="n/a" selected>Unknown (n/a)</option>
+        <option value="30min">30min</option>
+        <option value="2h">2h</option>
+        <option value="24h">24h</option>
+        <option value="7d">7d</option>
+        <option value="VAC">VAC</option>
+      </select>
+
+      <label for="BAN_METHOD">Ban Method:</label>
+      <select id="BAN_METHOD" name="BAN_METHOD" required>
+        <option value="">-- Select Ban Method --</option>
+        <option value="bell">Bell</option>
+        <option value="blocked">Blocked</option>
+        <option value="bluff">Bluff</option>
+        <option value="classic roleplay">Classic Roleplay</option>
+        <option value="coordinated attack">Coordinated Attack</option>
+        <option value="connected ban">Connected Ban</option>
+        <option value="flashed">Flashed</option>
+        <option value="german">German</option>
+        <option value="grenade pin">Grenade Pin</option>
+        <option value="hellfire">Hellfire</option>
+        <option value="kicked">Kicked</option>
+        <option value="killed">Killed</option>
+        <option value="mixed">Mixed</option>
+        <option value="poked">Poked</option>
+        <option value="scared">Scared</option>
+        <option value="VAC">VAC</option>
+        <option value="verbal">Verbal</option>
+        <option value="volleyball">Volleyball</option>
+        <option value="other">Other/Unspecified</option>
+        <option value="n/a">Unknown (null)</option>
+      </select>
+      
+      <h2>Player Data</h2>
+      <label for="COUNTRY">Country (Only EU):</label>
+      <select id="COUNTRY" name="COUNTRY" required>
+        <option value="">-- Select Country --</option>
+        <option value="XX">Unknown</option>
+        <option value="AL">Albania</option>
+        <option value="AD">Andorra</option>
+        <option value="AM">Armenia</option>
+        <option value="AT">Austria</option>
+        <option value="AZ">Azerbaijan</option>
+        <option value="BY">Belarus</option>
+        <option value="BE">Belgium</option>
+        <option value="BA">Bosnia and Herzegovina</option>
+        <option value="BG">Bulgaria</option>
+        <option value="HR">Croatia</option>
+        <option value="CY">Cyprus</option>
+        <option value="CZ">Czechia</option>
+        <option value="DK">Denmark</option>
+        <option value="EE">Estonia</option>
+        <option value="FI">Finland</option>
+        <option value="FR">France</option>
+        <option value="GE">Georgia</option>
+        <option value="DE">Germany</option>
+        <option value="GR">Greece</option>
+        <option value="HU">Hungary</option>
+        <option value="IS">Iceland</option>
+        <option value="IE">Ireland</option>
+        <option value="IL">Israel</option>
+        <option value="IT">Italy</option>
+        <option value="KZ">Kazakhstan</option>
+        <option value="XK">Kosovo</option>
+        <option value="LV">Latvia</option>
+        <option value="LI">Liechtenstein</option>
+        <option value="LT">Lithuania</option>
+        <option value="LU">Luxembourg</option>
+        <option value="MT">Malta</option>
+        <option value="MD">Moldova</option>
+        <option value="MC">Monaco</option>
+        <option value="ME">Montenegro</option>
+        <option value="NL">Netherlands</option>
+        <option value="MK">North Macedonia</option>
+        <option value="NO">Norway</option>
+        <option value="PL">Poland</option>
+        <option value="PT">Portugal</option>
+        <option value="RO">Romania</option>
+        <option value="RU">Russia</option>
+        <option value="SM">San Marino</option>
+        <option value="RS">Serbia</option>
+        <option value="SK">Slovakia</option>
+        <option value="SI">Slovenia</option>
+        <option value="ES">Spain</option>
+        <option value="SE">Sweden</option>
+        <option value="CH">Switzerland</option>
+        <option value="TR">Turkey</option>
+        <option value="UA">Ukraine</option>
+        <option value="UK">United Kingdom</option>
+        <option value="VA">Vatican City</option>
+      </select>
+      
+      <label for="TOXIC">Toxic Rate:</label>
+      <select id="TOXIC" name="TOXIC" required>
+        <option value="">-- Select Toxic Rate Value --</option>
+        <option value="0">0</option>
+        <option value="1">1</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="4">4</option>
+        <option value="5">5</option>
+        <option value="r">r</option>
+      </select>
+
+      <label for="PRIME">Prime:</label>
+      <select id="PRIME" name="PRIME" required>
+        <option value="">-- Select Prime Status --</option>
+        <option value="1">True</option>
+        <option value="0" selected>False</option>
+      </select>
+   
+      <label for="RESISTING">Resisting Rate:</label>
+      <select id="RESISTING" name="RESISTING" required>
+        <option value="">-- Select Resisting Rate Value --</option>
+        <option value="0" selected>0</option>
+        <option value="1">1</option>
+        <option value="2">2</option>
+      </select>
+      
+      <label for="CHEATER">Cheater:</label>
+      <select id="CHEATER" name="CHEATER" required>
+        <option value="">-- Select Cheater Status --</option>
+        <option value="1">True</option>
+        <option value="0" selected>False</option>
+      </select>
+      
+	  <label for="SPL">Steam Profile Link (leave value "0" if you don't want to):</label>
+      <textarea id="SPL" name="SPL" rows="5" placeholder="Paste steam profile link here...">0</textarea>
+
+
+      <button type="button" onclick="submitData()">Send Data</button>
+    </form>
+
+    <script>
+      function submitData() {
+        const formData = new FormData(document.getElementById("dataForm"));
+
+        fetch("https://script.google.com/macros/s/AKfycbxLLwZAivihNPF_FkSi2QvbJq5WNCBrI095qzJqQOphlS3fI64olUm1y0FaBkmD5VGU/exec", {
+          method: "POST",
+          body: formData,
+        })
+          .then((response) => response.text())
+          .then((data) => {
+            alert(data);
+            document.getElementById("dataForm").reset();
+          })
+          .catch((error) => {
+            alert("Error: " + error.message);
+          });
+      }
+    </script>
+  </body>
+</html>
