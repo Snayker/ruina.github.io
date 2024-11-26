@@ -1,4 +1,4 @@
-/* Global styles */
+/* Ogólne style dla strony */
 body {
   font-family: Arial, sans-serif;
   max-width: 800px;
@@ -6,69 +6,61 @@ body {
   padding: 20px;
   border: 1px solid #ccc;
   border-radius: 10px;
+  background-color: #f9f9f9;
+  color: #333;
   transition: background-color 0.3s, color 0.3s;
 }
 
-/* Dark mode styles */
-body.dark-mode {
-  background-color: #212121;
-  color: #e0e0e0;
-  border-color: #424242;
+h1, h2, label, p1 {
+  text-align: center;
 }
 
-body.dark-mode input,
-body.dark-mode select,
-body.dark-mode textarea,
-body.dark-mode button {
-  background-color: #333333;
-  color: #ffffff;
-  border: 1px solid #555555;
+h1 {
+  font-size: 24px;
+  margin-bottom: 10px;
 }
 
-body.dark-mode button {
-  background-color: #4caf50;
-}
-
-body.dark-mode button:hover {
-  background-color: #45a049;
-}
-
-/* Light mode styles */
-body.light-mode {
-  background-color: #ffffff;
-  color: #333333;
-}
-
-body.light-mode input,
-body.light-mode select,
-body.light-mode textarea,
-body.light-mode button {
-  background-color: #ffffff;
-  color: #333333;
-  border: 1px solid #ccc;
-}
-
-body.light-mode button {
-  background-color: #4CAF50;
-}
-
-body.light-mode button:hover {
-  background-color: #45a049;
-}
-
-/* Form alignment */
-form {
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-}
-
-/* Section headers */
 h2 {
+  font-size: 20px;
   margin-top: 20px;
+  margin-bottom: 10px;
 }
 
-/* Theme toggle */
+label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+
+input, select, textarea, button {
+  display: block;
+  width: calc(100% - 20px);
+  margin: 10px auto;
+  padding: 10px;
+  font-size: 14px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-sizing: border-box;
+}
+
+button {
+  background-color: #4CAF50;
+  color: white;
+  font-size: 16px;
+  font-weight: bold;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+button:hover {
+  background-color: #45a049;
+}
+
+textarea {
+  resize: vertical;
+}
+
 .theme-toggle {
   text-align: center;
   margin-bottom: 20px;
@@ -79,3 +71,26 @@ h2 {
   margin-right: 10px;
 }
 
+/* Style dla ciemnego motywu */
+body.dark-mode {
+  background-color: #333;
+  color: #fff;
+  border-color: #444;
+}
+
+body.dark-mode input,
+body.dark-mode select,
+body.dark-mode textarea,
+body.dark-mode button {
+  background-color: #555;
+  color: #fff;
+  border: 1px solid #777;
+}
+
+body.dark-mode button {
+  background-color: #777;
+}
+
+body.dark-mode button:hover {
+  background-color: #666;
+}
