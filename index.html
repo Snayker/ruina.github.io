@@ -2,47 +2,17 @@
 <html>
   <head>
     <title>StatTrak™ of penalties in CS2 - The Form (beta)</title>
-    <style>
-      body {
-        font-family: Arial, sans-serif;
-        max-width: 800px;
-        margin: 20px auto;
-        padding: 20px;
-        border: 1px solid #ccc;
-        border-radius: 10px;
-        background-color: #f9f9f9;
-      }
-      h1, h2 {
-        text-align: center;
-        color: #333;
-      }
-      label {
-        font-weight: bold;
-        display: block;
-        margin-top: 15px;
-      }
-      input, select, textarea, button {
-        width: 100%;
-        margin: 5px 0 15px 0;
-        padding: 10px;
-        border: 1px solid #ccc;
-        border-radius: 5px;
-        box-sizing: border-box;
-      }
-      button {
-        background-color: #4CAF50;
-        color: white;
-        cursor: pointer;
-        font-size: 16px;
-      }
-      button:hover {
-        background-color: #45a049;
-      }
-    </style>
+    <link rel="stylesheet" type="text/css" href="styles.css">
+  </head>
+  <body class="dark-mode">
+    <div class="theme-toggle">
+      <label for="themeSwitch">Change Theme:</label>
+      <input type="checkbox" id="themeSwitch" checked>
+    </div>
   </head>
   <body>
     <h1>StatTrak™ of penalties in CS2 - The Form (beta)</h1>
-    <p1>This site is under development - last update: 26.11.2024 11:30</p1>
+    <p1>This site is under development - last update: 26.11.2024 11:58</p1>
     <form id="dataForm">
       <!-- Sekcja 1: Match Data -->
       <h2>Match Data</h2>
@@ -269,6 +239,23 @@
     </form>
 
     <script>
+      const themeSwitch = document.getElementById("themeSwitch");
+      const body = document.body;
+
+      // Set default theme to dark mode
+      body.classList.add("dark-mode");
+
+      // Listen for theme changes
+      themeSwitch.addEventListener("change", () => {
+        if (themeSwitch.checked) {
+          body.classList.add("dark-mode");
+          body.classList.remove("light-mode");
+        } else {
+          body.classList.add("light-mode");
+          body.classList.remove("dark-mode");
+        }
+      });
+
       function submitData() {
         const formData = new FormData(document.getElementById("dataForm"));
 
